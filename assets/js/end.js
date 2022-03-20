@@ -63,5 +63,6 @@ function goHome() {
 logoReload.addEventListener("click", reloadGame);
 
 function reloadGame() {
-    window.location.replace("../index.html");
+    window.location.replace("/");
+    // window.location.replace("../index.html"); //changed to what's above to test
 }

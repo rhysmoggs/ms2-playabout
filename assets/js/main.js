@@ -137,7 +137,8 @@ const MAX_QUESTIONS = 10;
 logoReload.addEventListener("click", reloadGame);
 
 function reloadGame() {
-    window.location.replace("../index.html");
+    window.location.replace("/");
+    // window.location.replace("../index.html"); //changed to what's above to test
 }
 
 /*start the game*/
