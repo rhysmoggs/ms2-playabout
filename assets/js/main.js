@@ -178,7 +178,8 @@ getNewQuestion = () => {
         // return window.location.assign('../end.html');
         // return window.location.assign('/end.html');
         // return window.location.assign('end.html');
-        return window.location.assign('./end.html');
+        // return window.location.assign('./end.html');
+        return window.location.assign('/ms2-playabout/end.html');
     }
 
     questionCounter++;
