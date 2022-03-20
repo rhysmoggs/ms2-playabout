@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/08c2eb7d5e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/og.css">
+    <title>MS2-Test</title>
+</head>
+<body>
+
+    <!--make sure there's an alternative title/image if original logo doesn't load-->
+    <h1 class="heading"><img class="logo" src="assets/images/logo.png" alt="sonic the hedgehog logo">Quiz</h1>
+
+    <div class="game-area">
+
+        <!--instead of home button, just click on logo to go home/index?-->
+        <!-- <div id="home-container" class="hide">
+            <button id="home-btn" class="home-btn btn hide"><i class="fas fa-home"></i> Home</button>
+        </div> -->
+
+
+        <!--Build A Quiz App With JavaScript, https://www.youtube.com/watch?v=riDzcEQbX6k-->
+        <div class="question-area hide" id="question-area">
+            <div id="question">QUESTION HERE</div>
+            <div id="answer-buttons" class="btn-grid">
+                <button data-type="answer1" class="btn">Answer 1</button>
+                <button data-type="answer2" class="btn">Answer 2</button>
+                <button data-type="answer3"class="btn">Answer 3</button>
+                <button data-type="answer4" class="btn">Answer 4</button>
+            </div>
+        </div>
+
+        <div class="controls-area">
+            <button data-type="start" id="start-btn" class="start-btn btn">Start</button>
+            <button data-type="next" id="next-btn" class="next-btn btn hide">Next</button>
+        </div>
+
+        <!--just use correct answers, use ring animation for points?-->
+        <div class="score-area hide" id="score-area">
+            <p class="scores">Rings Collected <span id="score">0</span></p>
+            <!-- <p class="scores hide">Incorrect Answers <span id="incorrect">0</span></p> -->
+        </div>
+
+    </div>
+
+<script src="assets/js/og.js"></script>
+</body>
+</html>

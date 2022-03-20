@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/08c2eb7d5e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>MS2-Test</title>
+</head>
+<body>
+
+    <!--make sure there's an alternative title/image if original logo doesn't load-->
+    <h1 class="heading"><img aria-label="clickable logo that goes to game home page" id="logo" class="logo" src="assets/images/logo.png" alt="game logo and title">Quiz</h1>
+
+    <div id="game-area" class="game-area">
+        <div id="container" class="container hide">
+            <div id="game" class="justify-center flex-column">
+                <div id="hud">
+                    <div class="hud-item">
+                        <p id="progressText" class="hud-prefix">
+                            Destination
+                        </p>
+                        <div id="progressBar">
+                            <div id="progressBarFull"><img id="plane" src="assets/images/plane.png" alt="image of plane"></div>
+                        </div>
+                    </div>
+                    <div class="hud-item">
+                        <p class="hud-prefix">
+                            Air Miles
+                        </p>
+                        <h2 class="hud-main-text" id="score">
+                            0
+                        </h2>
+                    </div>
+                </div>
+                <h2 id="question"></h2>
+                <div class="choice-container">
+                    <!-- <p class="choice-prefix">A</p> -->
+                    <p class="choice-text" data-number="1"></p>
+                </div>
+                <div class="choice-container">
+                    <!-- <p class="choice-prefix">B</p> -->
+                    <p class="choice-text" data-number="2"></p>
+                </div>
+                <div class="choice-container">
+                    <!-- <p class="choice-prefix">C</p> -->
+                    <p class="choice-text" data-number="3"></p>
+                </div>
+                <div class="choice-container">
+                    <!-- <p class="choice-prefix">D</p> -->
+                    <p class="choice-text" data-number="4"></p>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="controls-area">
+            <button aria-label="button starts the game" data-type="start" id="start-btn" class="start-btn btn">Start</button>
+            <button aria-label="button shows how to play game" data-type="how" id="how-to-btn" class="how-to-btn btn">How to Play</button>
+
+            <div id="how-container" class="how-container hide">
+                <div id="howTo">
+                    <p>A simple quiz format.</p>
+                    <p>Click the START button and answer the questions!</p>
+                </div>
+            </div>
+            <!-- <button data-type="next" id="next-btn" class="next-btn btn hide">Next</button> -->
+            
+            
+            
+            <button aria-label="button shows how to contact game creators" data-type="contact" id="contact-btn" class="contact-btn btn">Contact</button>
+            <!--attempt to add social links here, then hide/show via js, just like other buttons-->
+            
+            <div id="contact-container" class="contact-container hide">
+                <ul class="contact-list">
+                    <li>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="link to game twitter website (opens in new tab)"><i class="fab fa-twitter website"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="link to game youtube website (opens in new tab)"><i class="fab fa-youtube website"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="link to game instagram website (opens in new tab)"><i class="fab fa-instagram website"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://uk.linkedin.com/" target="_blank" rel="noopener" aria-label="link to game linkedin website (opens in new tab)"><i class="fab fa-linkedin website"></i></a>
+                    </li>
+                </ul>
+            </div>
+            
+            
+            
+
+
+            <!--attempt to put hightscore button/page here instead of seperate file-->
+            <button aria-label="button shows game high scores"data-type="high" id="highscore-btn" class="highscore-btn btn">High Scores</button>
+            <div id="high-container" class="high-container hide">
+                <div id="highScores" class="flex-center flex-column">
+                    <h1 id="finalScore">High Scores</h1>
+                    <ul id="highScoresList"></ul>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--all of this works-->
+
+        <!-- <div class="controls-area">
+            <button data-type="start" id="start-btn" class="start-btn btn">Start</button>
+            <button data-type="how" id="how-to-btn" class="how-to-btn btn">How to Play</button>
+            <button data-type="contact" id="contact-btn" class="contact-btn btn">Contact</button>
+        </div>
+
+
+        <div id="how-container" class="how-container hide">
+            <div id="howTo">
+                <h1>How to Play</h1>
+                <p>A simple quiz format</p>
+                <p>Click the Play button and answer the questions</p>
+            </div>
+        </div>
+
+        <button data-type="high" id="highscore-btn" class="highscore-btn btn">High Scores</button>
+        <div id="high-container" class="high-container hide">
+            <div id="highScores" class="flex-center flex-column">
+                <h1 id="finalScore">Leaderboard</h1>
+                <ul id="highScoresList"></ul>
+            </div>
+        </div> -->
+
+
+
+
+
+
+
+    </div>
+
+<!-- <script src="assets/js/main.js"></script> -->
+<script src="assets/js/app.js"></script>
+</body>
+</html>

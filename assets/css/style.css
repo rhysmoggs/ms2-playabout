@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url("../images/maps.jpg");
+    background-size: auto;
+    background-color: rgb(0,0,0);
+    text-align: center;
+}
+
+/* headings, logo and text */
+
+.heading {
+    /* margin: 2.5rem auto; */
+    color: rgba(230,236,240);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+span {
+    text-align: center;
+    font-size: 1.9rem;
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    /* top: 12%; */
+    top: 10%;
+    background: rgb(0,0,0);
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    height: 220px;
+    cursor: pointer;
+    /* padding-right: 5px; */
+    /* vertical-align: middle; */
+    border-radius: 50%;
+    box-shadow: -8px 0px 3rem 8px rgb(187 148 133);
+}
+
+.choice-text {
+    width: 100%;
+}
+
+#copyright {
+    margin: 1.5rem 0 0 0;
+    font-size: 0.8rem;
+}
+
+/* game containers */
+
+.game-area {
+    background-color: rgba(230,236,240, .95);
+    border-radius: 6px;
+    box-sizing: border-box;
+    width: 85%;
+    height: auto;
+    max-width: 830px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    /*centres game-area perfectly, tweak overlapping/hiding content (heading, maybe more stuff?)*/
+    /*toggle this on/off and tweak above margins if necessary*/
+    /* https://stackoverflow.com/questions/42121150/css-centering-with-transform */
+    position: absolute;
+    top: 60%;
+    right: 50%;
+    transform: translate(50%,-50%);
+}
+
+.container {
+    width: 85%;
+    margin: auto;
+    /* padding: 25px 0; */
+}
+
+/*these are containers/buttons the answers will populate*/
+.choice-container {
+    background-color: rgb(239, 239, 239);
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    width: 50%;
+    border-radius: 6px;
+    min-width: 65%;
+    text-transform: uppercase;
+    text-align: center;
+    border: 1px solid;
+}
+
+.choice-container:hover {
+    cursor: pointer;
+    box-shadow: 3px 7px 16px 5px rgb(187 148 133 / 60%);
+    transform: scale(1.02);
+    transform: transform 100ms;
+}
+
+.controls-area {
+    width: 85%;
+    margin: 0px auto;
+    display: grid;
+    justify-content: center;
+}
+
+.hide {
+    display: none;
+}
+
+/* buttons */
+
+.btn {
+    width: 380px;
+    height: 60px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin: 0.8rem;
+    text-align: center;
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 3px 7px 16px 5px rgb(187 148 133 / 60%);
+    transition: transform 150ms;
+    transform: scale(1.03);
+}
+
+.btn[disabled]:hover {
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.correct {
+    background: rgb(255,210,0);
+}
+
+.incorrect {
+    background: rgb(255,0,0);
+}
+
+/* style by BrainCodex, changed to suit my game*/
+#highscore-btn:hover {
+    background: rgb(255,210,0);
+    box-shadow: 3px 7px 16px 5px rgba(255, 255, 0, 50%);
+}
+
+/* HUD */
+
+#hud {
+    /* display: flex; */
+    justify-content: space-between;
+}
+
+.hud-prefix {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: rgb(0,0,0);
+    text-align: center;
+}
+
+.hud-main-text {
+    text-align: center;
+}
+
+#progressBar {
+    /* width: 10rem; */
+    height: 1.5rem;
+    border: 0.15rem solid rgb(0,0,0);
+    margin-top: 0.8rem;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+#progressBarFull {
+    height: 100%;
+    position: relative;
+    background: rgb(255,210,0);
+    width: 0%;
+}
+
+#plane {
+    position: absolute;
+}
+
+/* layout */
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+/*contact list*/
+
+.contact-list {
+    list-style-type: none;
+    display: flex;
+    letter-spacing: 3.5rem;
+    justify-content: center;
+    /*need to clean up auto margin from lit-style/padding*/
+}
+
+.contact-list i {
+    color: rgb(0,0,0);
+    font-size: 2.5rem;
+}
+
+.contact-list i:hover {
+    color: rgb(255,210,0);
+    font-size: 2.5rem;
+}
+
+/*high scores*/
+
+#highScoresList {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+/*adjust style or remove this class and default to <p> styling?*/
+.high-score {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/*end.html*/
+
+#score, #finalScore {
+    color: rgb(255,210,0);
+    text-shadow: -1.5px 1px 1px rgb(0,0,0);
+    font-weight: bold;
+    letter-spacing: 0.5rem;
+}
+
+.end-form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 30rem;
+}
+
+input {
+    margin-bottom: 1rem;
+    width: 20rem;
+    padding: 1.5rem;
+    font-size: 1.8rem;
+    border: none;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(187,148,133, 0.6);
+}
+
+input::placeholder {
+    color: rgb(170, 170, 170);
+}
+
+#username {
+    margin-bottom: 3rem;
+    width: 100%;
+    outline: none;
+}
+
+/*media queries*/
+
+@media only screen and (max-width: 320px) {
+    .logo {
+        height: 120px;
+    }
+    span {
+        font-size: 0.8rem;
+        top: 8%;
+    }
+    h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    .hud-prefix {
+        font-size: 1.1rem;
+    }
+    .game-area {
+        top: 70%;
+    }
+    .btn {
+        width: 200px;
+    }
+    .choice-container {
+        width: 80%;
+    }
+    .controls-area {
+        display: block;
+    }
+    #username {
+        margin-bottom: 0.8rem;
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 481px) {
+    span {
+        font-size: 1rem;
+        top: 9%;
+    }
+    h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+    .hud-prefix {
+        font-size: 1.3rem;
+    }
+    .btn {
+        width: 250px;
+    }
+    .choice-container {
+        width: 85%;
+    }
+    .controls-area {
+        display: block;
+    }
+    #end-text {
+    font-size: 1.4rem;
+    }
+    #username {
+        margin-bottom: 1rem;
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .logo {
+        height: 180px;
+    }
+    span {
+        font-size: 1.5rem;
+        top: 10%;
+    }
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .hud-prefix {
+        font-size: 1.4rem;
+    }
+    #username {
+        margin-bottom: 1.5rem;
+    }
+    input {
+        padding: 1.2rem;
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 1025px) {
+    .logo {
+        height: 200px;
+    }
+    span {
+        font-size: 1.7rem;
+        top: 10%;
+    }
+    h2 {
+        font-size: 1.7rem;
+        margin-bottom: 1rem;
+    }
+    .hud-prefix {
+        font-size: 1.4rem;
+    }
+}
