@@ -144,11 +144,12 @@ getNewQuestion = () => {
     if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score);
         // return window.location.assign('../end.html');
+        return window.location.assign('..end.html');
         // return window.location.assign('/end.html');
         // return window.location.assign('end.html');
         // return window.location.assign('./end.html');
         // return window.location.assign('/ms2-playabout/end.html'); //works
-        return window.location.assign('ms2-playabout/end.html'); //works too
+        // return window.location.assign('ms2-playabout/end.html'); //works too
     }
 
     questionCounter++;
