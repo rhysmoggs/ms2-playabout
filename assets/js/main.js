@@ -178,8 +178,7 @@ getNewQuestion = () => {
         // return window.location.assign('../end.html');
         // return window.location.assign('/end.html');
         // return window.location.assign('end.html');
-        return window.location.assign('end.html');
-        
+        return window.location.assign('./end.html');
     }
 
     questionCounter++;
