@@ -62,38 +62,6 @@ let availableQuestions = [];
 let correctAnswers = 0;
 
 
-
-
-
-
-/*list of questions*/
-// let questions = [
-//     {
-//         question: 'What is the largest country in South America?',
-//         choice1: 'Paraguay',
-//         choice2: 'Colombia',
-//         choice3: 'Suriname',
-//         choice4: 'Brazil',
-//         answer: 4,
-//     },
-//     {
-//         question: "How many countries border Austria?",
-//         choice1: "2",
-//         choice2: "8",
-//         choice3: "1",
-//         choice4: "5",
-//         answer: 2,
-//     },
-//     {
-//         question: "What is the capital city of Canada?",
-//         choice1: "Quebec City",
-//         choice2: "Toronto",
-//         choice3: "Ottawa",
-//         choice4: "Vancouver",
-//         answer: 3,
-//     }
-// ]
-
 let questions = [];
 
 fetch(
@@ -180,7 +148,7 @@ getNewQuestion = () => {
         // return window.location.assign('end.html');
         // return window.location.assign('./end.html');
         // return window.location.assign('/ms2-playabout/end.html'); //works
-        return window.location.assign('ms2-playabout/end.html');
+        return window.location.assign('ms2-playabout/end.html'); //works too
     }
 
     questionCounter++;

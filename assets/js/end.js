@@ -56,13 +56,15 @@ homeButton.addEventListener("click", goHome);
 
 /*use reloadGame instead of this? same thing, which is better?*/
 function goHome() {
-    window.location.assign('/');
+    // window.location.assign('/');
+    window.location.assign('index.html') //check this too
 }
 
 /*event listener set to the logo button that reloads the home page*/
 logoReload.addEventListener("click", reloadGame);
 
 function reloadGame() {
-    window.location.replace("/");
+    window.location.assign('index.html'); //check to see if it works
+    // window.location.replace("/");
     // window.location.replace("../index.html"); //changed to what's above to test
 }
