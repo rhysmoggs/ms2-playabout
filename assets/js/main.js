@@ -137,8 +137,8 @@ const MAX_QUESTIONS = 10;
 logoReload.addEventListener("click", reloadGame);
 
 function reloadGame() {
-    window.location.assign("index.html");
-    // window.location.replace("index.html"); //doesnt work
+    window.location.assign('index.html'); //potential here
+    //window.location.replace("index.html"); //doesnt work
     // window.location.replace("/index.html"); //doesn't work
     // window.location.replace("/"); //doesnt work.
     // window.location.replace("../index.html"); //changed to what's above to test
@@ -175,7 +175,11 @@ startButton.addEventListener("click", startGame);
 getNewQuestion = () => {
     if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score);
-        return window.location.assign('../end.html');
+        // return window.location.assign('../end.html');
+        // return window.location.assign('/end.html');
+        // return window.location.assign('end.html');
+        return window.location.assign('end.html');
+        
     }
 
     questionCounter++;
