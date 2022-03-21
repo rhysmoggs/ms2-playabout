@@ -12,7 +12,7 @@
 <body>
 
     <!--heading-->
-    <h1 class="heading"><img aria-label="clickable logo that goes to game home page" id="logo" class="logo" src="assets/images/logo.png" alt="game logo and title"><span>Globe Trotter Quiz</span></h1>
+    <h1 class="heading"><img aria-label="clickable logo that goes to quiz main menu" id="logo" class="logo" src="assets/images/logo.png" alt="game logo and title"><span id="span-heading">Globe Trotter Quiz</span></h1>
 
     <!--game area-->
     <div id="game-area" class="game-area">
@@ -20,7 +20,7 @@
             <div id="game" class="justify-center flex-column">
                 <div id="hud">
                     <div class="hud-item">
-                        <p id="progressText" class="hud-prefix">
+                        <p id="progressCounter">
                             Question
                         </p>
                         <div id="progressBar">
@@ -28,11 +28,8 @@
                         </div>
                     </div>
                     <div class="hud-item">
-                        <!-- <p class="hud-prefix">
-                            Air Miles
-                        </p> -->
-                        <h2 class="hud-main-text" id="score">
-                            0 miles travelled
+                        <h2 id="score">
+                            <span id="span-score">0 miles travelled</span>
                         </h2>
                     </div>
                 </div>
@@ -62,7 +59,7 @@
                 <div id="howTo">
                     <p>A simple quiz format.</p>
                     <p>Click the <strong>START</strong> button and answer the questions.</p>
-                    <p>Try and reach 25000 Air Miles to travel around the world!!</p>
+                    <p>It takes 25000 miles to travel the world. Let's see if you can!</p>
                 </div>
             </div>
 
@@ -88,6 +85,8 @@
             <button aria-label="button shows game high scores" data-type="high" id="highscore-btn" class="highscore-btn btn">High Scores</button>
             <div id="high-container" class="high-container hide">
                 <div id="highScores" class="flex-center flex-column">
+                    <!--shall I hide this h1 for cleaner look?-->
+                    <!-- <h1 id="finalScore">High Scores</h1> -->
                     <ul id="highScoresList"></ul>
                 </div>
             </div>

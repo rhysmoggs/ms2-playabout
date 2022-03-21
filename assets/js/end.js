@@ -1,70 +1,74 @@
-const username = document.querySelector('#username')
-const saveScoreBtn = document.querySelector('#saveScoreBtn')
-const finalScore = document.querySelector('#finalScore')
-const mostRecentScore = localStorage.getItem('mostRecentScore')
-const homeButton = document.getElementById('home-btn');
+// list of variables
 const logoReload = document.getElementById('logo');
 
-const highScores = JSON.parse(localStorage.getItem('highScores')) || []
+const username = document.querySelector('#username');
 
-const MAX_HIGH_SCORES = 5
+const saveScoreBtn = document.querySelector('#saveScoreBtn');
 
-// finalScore.innerText = mostRecentScore
-finalScore.innerText = mostRecentScore + ' miles travelled'
+const finalScore = document.querySelector('#finalScore');
+const mostRecentScore = localStorage.getItem('mostRecentScore');
 
+const homeButton = document.getElementById('home-btn');
+
+const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// maximum number of saved usernames and scores listed on High Scores list
+const MAX_HIGH_SCORES = 5;
+
+// display user's final score on end screen
+// finalScore.innerText = mostRecentScore + ' miles travelled';
+finalScore.innerHTML = `<span id="span-score"> ${mostRecentScore} miles travelled</span>`;
+
+// event listener added to input field, which then enables Save button
 username.addEventListener('keyup', () => {
-    saveScoreBtn.disabled = !username.value
-})
+    saveScoreBtn.disabled = !username.value;
+});
 
+/*saves highscore to storage, organizes them and add only allows the highest 5*/
 saveHighScore = e => {
-    e.preventDefault()
+    e.preventDefault();
 
     const score = {
         score: mostRecentScore,
         name: username.value
-    }
+    };
 
-    highScores.push(score)
+    highScores.push(score);
 
     highScores.sort((a,b) => {
-        return b.score - a.score
-    })
+        return b.score - a.score;
+    });
 
-    highScores.splice(5)
+    highScores.splice(5);
 
-    localStorage.setItem('highScores', JSON.stringify(highScores))
-    window.location.assign('index.html')
-}
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+    window.location.assign('index.html');
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// all my stuff below here
-
-/*event listener set to the home button that reruns to home screen*/
+/*event listener set to the home button*/
 homeButton.addEventListener("click", goHome);
 
-/*use reloadGame instead of this? same thing, which is better?*/
+/*goes to home page*/
 function goHome() {
-    // window.location.assign('/');
-    window.location.assign('index.html') //check this too
+    window.location.assign('index.html');
 }
 
 /*event listener set to the logo button that reloads the home page*/
 logoReload.addEventListener("click", reloadGame);
 
 function reloadGame() {
-    window.location.assign('index.html'); //check to see if it works
-    // window.location.replace("/");
-    // window.location.replace("../index.html"); //changed to what's above to test
+    window.location.assign('index.html');
 }

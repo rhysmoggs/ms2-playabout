@@ -34,19 +34,11 @@ const highscoresDiv = document.getElementById('high-container');
 const highScoresList = document.querySelector('#highScoresList');
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
-
-
-// const endDiv = document.getElementById('end-container');
-
-// const question = document.querySelector('#question');
 const question = document.getElementById('question');
-// const choices = Array.from(document.querySelectorAll('.choice-text'));
 const choices = Array.from(document.getElementsByClassName('choice-text'));
-// const progressText = document.querySelector('#progressText');
-const progressText = document.getElementById('progressText');
-// const scoreText = document.querySelector('#score');
+
+const progressCounter = document.getElementById('progressCounter');
 const scoreText = document.getElementById('score');
-// const progressBarFull = document.querySelector('#progressBarFull');
 const progressBarFull = document.getElementById('progressBarFull');
 const plane = document.getElementById('plane');
 
@@ -60,7 +52,6 @@ let availableQuestions = [];
 
 //with help from mentor
 let correctAnswers = 0;
-
 
 let questions = [];
 
@@ -105,11 +96,7 @@ const MAX_QUESTIONS = 10;
 logoReload.addEventListener("click", reloadGame);
 
 function reloadGame() {
-    window.location.assign('index.html'); //potential here
-    //window.location.replace("index.html"); //doesnt work
-    // window.location.replace("/index.html"); //doesn't work
-    // window.location.replace("/"); //doesnt work.
-    // window.location.replace("../index.html"); //changed to what's above to test
+    window.location.assign('index.html');
 }
 
 /*start the game*/
@@ -143,19 +130,11 @@ startButton.addEventListener("click", startGame);
 getNewQuestion = () => {
     if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score);
-        // return window.location.assign('../end.html');
         return window.location.assign('end.html');
-        // return window.location.assign('/end.html');
-        // return window.location.assign('end.html');
-        // return window.location.assign('./end.html');
-        // return window.location.assign('/ms2-playabout/end.html'); //works
-        // return window.location.assign('ms2-playabout/end.html'); //works too
     }
 
     questionCounter++;
-    progressText.innerText = `Question: ${questionCounter} / ${MAX_QUESTIONS}`;
-    // progressBarFull.style.width = `${(questionCounter/MAX_QUESTIONS) * 100}%`
-    // plane.style.left = "100%"
+    progressCounter.innerText = `Question: ${questionCounter} / ${MAX_QUESTIONS}`;
     
     const questionsIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionsIndex];
@@ -171,7 +150,7 @@ getNewQuestion = () => {
     acceptingAnswers = true;
 };
 
-/*check if the answer is correct/incorrect call it checkAnswer instead?*/
+/*check if the answer is correct/incorrect*/
 choices.forEach(choice => {
     choice.addEventListener('click', e => {
         if(!acceptingAnswers) return;
@@ -187,12 +166,7 @@ choices.forEach(choice => {
             
             console.log(correctAnswers);
             incrementScore(SCORE_POINTS);
-            // progressBarFull.style.width = `${(questionCounter/MAX_QUESTIONS) * 100}%`;
             progressBarFull.style.width = `${correctAnswers * 10}%`;
-            // if (progressBarFull.style.width = "100%") {
-            //     document.getElementById("plane").src = "assets/images/earth.png";
-            // }
-
             plane.style.left = "100%";
         }
 
@@ -209,89 +183,44 @@ choices.forEach(choice => {
 /*increment score for each correct answer*/
 incrementScore = num => {
     score +=num;
-    scoreText.innerText = score + 'miles travelled';
+    // scoreText.innerText = score + ' miles travelled';
+    // $("#score").addClass("#span-score");
+    // scoreText.classList.add('span-score');
+    // scoreText.innerText = `<span id="score-span"> ${score} + ' miles travelled'</span>`;
+    scoreText.innerHTML = `<span id="span-score"> ${score} miles travelled</span>`;
 };
 
-// working - list to add score to highscore list
-// highScoresList.innerHTML =
-// highScores.map(score => {
-//     return `<li class="high-score">${score.name} - ${score.score}</li>`
-// }).join("")
-
-//experimental
+/*list to add score to highscore list*/
 highScoresList.innerHTML =
 highScores.map(score => {
-    return `<p class="high-score">${score.name} - ${score.score} Air Miles</p>`;
+    return `<p class="high-score">${score.name} - ${score.score} miles travelled</p>`;
 }).join("");
 
 
-// https://sebhastian.com/javascript-show-hide-div-onclick-toggle/ then tweaked to serve my game
-// const targetDiv = document.getElementById("third");
-// const btn = document.getElementById("toggle");
-
-//this function works. it expands and shows high scores, but keeps all other sections of page.
-// highscoresButton.onclick = function () {
-//     if (highscoresDiv.style.display !== "block") {
-//         highscoresDiv.style.display = "block";
-//     } else {
-//         highscoresDiv.style.display = "none";
-//     }
-// };
-
-
-//experimental attempt to hide all others and just show highscore
-//improve js, maybe add hide all for reocurring stuff e.g. hide all start/howTo+contact
-//might need to do the same for the How to Play button
+/*show or hide High Scores section*/
 highscoresButton.onclick = function () {
     if (highscoresDiv.style.display !== "block") {
         highscoresDiv.style.display = "block";
         startButton.classList.add('hide');
         howToButton.classList.add('hide');
-        // howToDiv.classList.add('hide');
         contactButton.classList.add('hide');
         gameArea.style.top = "55%";
     } else {
         highscoresDiv.style.display = "none";
         startButton.classList.remove('hide');
         howToButton.classList.remove('hide');
-        // howToDiv.classList.remove('hide');
         contactButton.classList.remove('hide');
         gameArea.style.top = "60%";
     }
 };
 
-// trying this way, https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
-// function myFunction() {
-//     var x = document.getElementById("high-container");
-//     if (x.style.display === "none") {
-//       x.style.display = "block";
-//     } else {
-//       x.style.display = "none";
-//     }
-//   }
-
-
-
-//for the how to play popup
-
-//this function works. it expands and shows instructions on how to play, but keeps all other sections of page.
-// howToButton.onclick = function () {
-//     if (howToDiv.style.display !== "block") {
-//         howToDiv.style.display = "block";
-//     } else {
-//         howToDiv.style.display = "none";
-//     }
-// };
-
-//same thing but for Hot To Play section
+/*show or hide How To Play section*/
 howToButton.onclick = function () {
     if (howToDiv.style.display !== "block") {
         howToDiv.style.display = "block";
         startButton.classList.add('hide');
         contactButton.classList.add('hide');
         highscoresButton.classList.add('hide');
-        // hideContent();
-        // howToButton.classList.remove('hide');
         gameArea.style.top = "55%";
     } else {
         howToDiv.style.display = "none";
@@ -302,15 +231,13 @@ howToButton.onclick = function () {
     }
 };
 
-//same thing but for Contact section
+/*show or hide Contact section*/
 contactButton.onclick = function () {
     if (contactDiv.style.display !== "block") {
         contactDiv.style.display = "block";
         startButton.classList.add('hide');
         howToButton.classList.add('hide');
         highscoresButton.classList.add('hide');
-        // hideContent();
-        // howToButton.classList.remove('hide');
         gameArea.style.top = "55%";
     } else {
         contactDiv.style.display = "none";
